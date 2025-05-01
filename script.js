@@ -3,7 +3,7 @@ var offsetY = 0;
 for (i=0 ; i<8; i++){
     for (j=0;j<8;j++){
         var tile = document.createElement('img');
-        tile.src = '8k7ot3de.png';
+        tile.src = 'webdevSprites/8k7ot3de.png';
         tile.width = 50;
         tile.height = 50;
         offsetX = i*50 + 400;
@@ -235,8 +235,10 @@ function changeCanonballDirection(canonball){
 
 
 function destroyCanonball(canonball){
-    canonball.isCreated = false;
-    document.getElementById('canonball').removeChild(canonball);
+    if(canonball.isCreated){
+        canonball.isCreated = false;
+        document.getElementById('canonball').removeChild(canonball);
+    }
 }
 
 function isCollided(object){
